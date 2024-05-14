@@ -2,7 +2,7 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
-Library/
+[Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
 [Bb]uild/
@@ -72,10 +72,3 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
-
-
-Library/PackageCache/com.unity.burst@1.8.13/.Runtime/libburst-llvm-16.so
-Library/PackageCache/com.unity.burst@1.8.13/.Runtime/burst-llvm-16-arm64.dll
-Library/PackageCache/com.unity.burst@1.8.13/.Runtime/burst-llvm-16.dll
-Library/PackageCache/com.unity.burst@1.8.13/.Runtime/hostmac/dsymutil
-Library/PackageCache/com.unity.burst@1.8.13/.Runtime/libburst-llvm-16.dylib
