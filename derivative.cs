@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class leftandright : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class derivative : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     private Canvas canvas;
     private RectTransform rectTransform;
@@ -45,8 +45,7 @@ public class leftandright : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             if (hitObject.CompareTag("Manipulatable"))
             {
                 Debug.Log("Manipulatable object detected: " + hitObject.name); // 確認物體具有正確的標籤
-                Flip(hitObject); // 將 eventData 作為參數傳入 function
-                rectTransform.anchoredPosition = initialPosition; // 返回初始位置
+                ShrinkObject(hitObject);
             }
             else
             {
@@ -65,23 +64,11 @@ public class leftandright : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         }
     }
 
-    private bool flipped = false;
-
-    public void Flip(GameObject obj)
+    private void ShrinkObject(GameObject obj)
     {
         count++;
-        // 取得物體目前的Scale值
-        Vector3 scale = obj.transform.localScale;
-
-        // 翻轉物體，將X軸的Scale值乘以-1
-        scale.x *= -1;
-
-        // 將新的Scale值設置給物體
-        obj.transform.localScale = scale;
-
-        // 更新翻轉狀態
-        flipped = !flipped;
+        obj.transform.localScale -= new Vector3(0.5f, 0.5f, 0.5f); // 顯著減少縮放
+        if (obj.transform.localScale.x < 0.1f) obj.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f); // 防止縮放為負或零
+        Debug.Log("Shrunk " + obj.name + " to " + obj.transform.localScale);
     }
-
-
 }

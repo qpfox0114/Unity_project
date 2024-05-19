@@ -7,15 +7,18 @@ public class PlayerScore : MonoBehaviour
     public int score;
     public int blinks;
     public float time;
+    public float cd;
     private Renderer myRender;
+    private screenflash sf;
+    private CapsuleCollider2D cc2d;
 
-    // Start is called before the first frame update
     void Start()
     {
         myRender = GetComponent<Renderer>();
+        sf = GetComponent<screenflash>();
+        cc2d = GetComponent<CapsuleCollider2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -23,12 +26,15 @@ public class PlayerScore : MonoBehaviour
 
     public void DamegePlayer(int damage)
     {
+        sf.FlashScreen();
         score -= damage;
         if (score <= 0)
         {
             score = 0;
         }
         BlinkPlayer(blinks, time);
+        cc2d.enabled = false;
+        StartCoroutine(InvincibleTime());
     }
 
     void BlinkPlayer(int numBlinks, float seconds)
@@ -36,6 +42,11 @@ public class PlayerScore : MonoBehaviour
         StartCoroutine(DoBlinks(numBlinks, seconds));
     }
 
+    IEnumerator InvincibleTime()
+    {
+        yield return new WaitForSeconds(cd);
+        cc2d.enabled = true;
+    }
     IEnumerator DoBlinks(int numBlinks, float seconds)
     {
         for (int i = 0; i < numBlinks * 2; i++)

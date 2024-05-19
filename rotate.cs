@@ -6,21 +6,21 @@ public class rotate : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHa
     private Canvas canvas;
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
-    private Vector3 initialPosition; // è¨˜éŒ„åˆå§‹ä½ç½®
-    private int count; // è¨ˆæ•¸å™¨
+    private Vector3 initialPosition; // °O¿ıªì©l¦ì¸m
+    private int count; // ­p¼Æ¾¹
 
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         canvas = GetComponentInParent<Canvas>();
-        initialPosition = rectTransform.anchoredPosition; // åœ¨ Awake ä¸­è¨˜éŒ„åˆå§‹ä½ç½®
+        initialPosition = rectTransform.anchoredPosition; // ¦b Awake ¤¤°O¿ıªì©l¦ì¸m
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        canvasGroup.alpha = 0.6f; // æ‹–å‹•éç¨‹ä¸­ä½¿ UI å…ƒç´ åŠé€æ˜
-        canvasGroup.blocksRaycasts = false; // å…è¨±å°„ç·šç©¿é€é€™å€‹ UI å…ƒç´ 
+        canvasGroup.alpha = 0.6f; // ©ì°Ê¹Lµ{¤¤¨Ï UI ¤¸¯À¥b³z©ú
+        canvasGroup.blocksRaycasts = false; // ¤¹³\®g½u¬ï³z³o­Ó UI ¤¸¯À
         Debug.Log("Begin Drag: " + gameObject.name);
     }
 
@@ -35,31 +35,32 @@ public class rotate : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHa
         canvasGroup.blocksRaycasts = true;
         Debug.Log("End Drag: " + gameObject.name);
 
-        // åŸ·è¡Œ 2D å°„ç·šæª¢æ¸¬ä¾†æª¢æ¸¬é UI ç‰©é«”
+        // °õ¦æ 2D ®g½uÀË´ú¨ÓÀË´ú«D UI ª«Åé
         Vector2 raycastPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(raycastPosition, Vector2.zero);
         if (hit.collider != null)
         {
             GameObject hitObject = hit.collider.gameObject;
-            Debug.Log("Hit: " + hitObject.name); // ç¢ºèªå°„ç·šæª¢æ¸¬åˆ°çš„ç‰©é«”
+            Debug.Log("Hit: " + hitObject.name); // ½T»{®g½uÀË´ú¨ìªºª«Åé
             if (hitObject.CompareTag("Manipulatable"))
             {
-                Debug.Log("Manipulatable object detected: " + hitObject.name); // ç¢ºèªç‰©é«”å…·æœ‰æ­£ç¢ºçš„æ¨™ç±¤
+                Debug.Log("Manipulatable object detected: " + hitObject.name); // ½T»{ª«Åé¨ã¦³¥¿½Tªº¼ĞÅÒ
                 RotateObject(hitObject);
             }
             else
             {
                 Debug.Log("Hit object does not have the correct tag, returning to original position");
-                rectTransform.anchoredPosition = initialPosition; // è¿”å›åˆå§‹ä½ç½®
+                rectTransform.anchoredPosition = initialPosition; // ªğ¦^ªì©l¦ì¸m
             }
         }
         else
         {
             Debug.Log("No object hit by Raycast, returning to original position");
-            rectTransform.anchoredPosition = initialPosition; // å¦‚æœæ²’æœ‰æª¢æ¸¬åˆ°ç›®æ¨™ç‰©é«”ï¼Œè¿”å›åˆå§‹ä½ç½®
+            rectTransform.anchoredPosition = initialPosition; // ¦pªG¨S¦³ÀË´ú¨ì¥Ø¼Ğª«Åé¡Aªğ¦^ªì©l¦ì¸m
         }
-        if(count == 5){
-            rectTransform.gameObject.SetActive(false); // éš±è— UI å…ƒç´ 
+        if (count == 5)
+        {
+            rectTransform.gameObject.SetActive(false); // ÁôÂÃ UI ¤¸¯À
         }
     }
 

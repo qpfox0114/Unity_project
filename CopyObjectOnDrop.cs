@@ -6,13 +6,13 @@ public class CopyObjectOnDrop : MonoBehaviour
 
     private void Start()
     {
-        // é–‹å§‹æ™‚éš±è—ç‰©é«”
+        // ¶}©l®ÉÁôÂÃª«Åé
         objectToCopy.SetActive(false);
     }
 
     public void CopyObject()
     {
-        // è¤‡è£½ç‰©é«”ä¸¦é¡¯ç¤ºåœ¨æŒ‡å®šçš„ç”Ÿæˆé»
+        // ½Æ»sª«Åé¨ÃÅã¥Ü¦b«ü©wªº¥Í¦¨ÂI
         objectToCopy.SetActive(true);
     }
 }

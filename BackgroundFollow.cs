@@ -17,6 +17,7 @@ public class BackgroundFollow : MonoBehaviour
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         Sprite sprite = spriteRenderer.sprite;
         textureUnitSizeX = (sprite.texture.width / sprite.pixelsPerUnit) * transform.localScale.x;
+
     }
 
     void Update()

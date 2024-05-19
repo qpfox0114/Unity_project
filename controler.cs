@@ -66,7 +66,7 @@ public class controler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
                 if (areaEffector != null && areaEffector.forceMagnitude == 0)
                 {
-                    areaEffector.forceMagnitude = 15f;
+                    areaEffector.forceMagnitude = 70f;
                     if (fanAnimator != null)
                     {
                         fanAnimator.SetTrigger("On");

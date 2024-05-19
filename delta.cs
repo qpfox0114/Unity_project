@@ -6,9 +6,9 @@ public class Delta : MonoBehaviour, IDropHandler
     public GameObject myObject;
     public float offset = 0.1f;
 
-    // èª¿æ•´é€™å€‹è®Šé‡ä¾†æ§åˆ¶æ‹‰é•·çš„é€Ÿåº¦
+    // ½Õ¾ã³o­ÓÅÜ¶q¨Ó±±¨î©Ôªøªº³t«×
     public float stretchSpeed = 1.0f;
-    // æœ€å¤§é•·åº¦
+    // ³Ì¤jªø«×
     public float maxLength = 10.0f;
 
     public void OnDrop(PointerEventData eventData)
@@ -20,7 +20,7 @@ public class Delta : MonoBehaviour, IDropHandler
             {
                 EnlargeObject();
             }
-            else if (dropped.name == "Imagesmall")
+            else if (dropped.name == "derivative")
             {
                 ShrinkObject();
             }
@@ -34,7 +34,7 @@ public class Delta : MonoBehaviour, IDropHandler
             }
             else if (dropped.name == "disappear")
             {
-                Destroy(myObject); // åªæœ‰åœ¨æ‹–æ”¾ "disappear" æ™‚æ‰éŠ·æ¯€ç‰©é«”
+                Destroy(myObject); // ¥u¦³¦b©ì©ñ "disappear" ®É¤~¾P·´ª«Åé
             }
         }
     }
@@ -71,14 +71,14 @@ public class Delta : MonoBehaviour, IDropHandler
     {
         if (myObject != null)
         {
-            // ç²å–ç‰©é«”ç•¶å‰çš„ x å’Œ y è»¸é•·åº¦
+            // Àò¨úª«Åé·í«eªº x ©M y ¶bªø«×
             float currentLengthX = myObject.transform.localScale.x;
             float currentLengthY = myObject.transform.localScale.y;
 
-            // åˆ¤æ–·å“ªå€‹è»¸å‘çš„é•·åº¦æ›´é•·
+            // §PÂ_­ş­Ó¶b¦Vªºªø«×§óªø
             if (currentLengthX >= currentLengthY)
             {
-                // å¦‚æœ x è»¸é•·åº¦æ›´é•·ï¼Œæª¢æŸ¥æ˜¯å¦éœ€è¦æ‹‰é•·ä¸¦æ‹‰é•· x è»¸
+                // ¦pªG x ¶bªø«×§óªø¡AÀË¬d¬O§_»İ­n©Ôªø¨Ã©Ôªø x ¶b
                 if (currentLengthX < maxLength)
                 {
                     myObject.transform.localScale += new Vector3(stretchSpeed * Time.deltaTime, 0, 0);
@@ -86,7 +86,7 @@ public class Delta : MonoBehaviour, IDropHandler
             }
             else
             {
-                // å¦‚æœ y è»¸é•·åº¦æ›´é•·ï¼Œæª¢æŸ¥æ˜¯å¦éœ€è¦æ‹‰é•·ä¸¦æ‹‰é•· y è»¸
+                // ¦pªG y ¶bªø«×§óªø¡AÀË¬d¬O§_»İ­n©Ôªø¨Ã©Ôªø y ¶b
                 if (currentLengthY < maxLength)
                 {
                     myObject.transform.localScale += new Vector3(0, stretchSpeed * Time.deltaTime, 0);

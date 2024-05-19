@@ -87,6 +87,7 @@ public class enemycal : Enemy
         // 等待指定時間
         yield return new WaitForSeconds(duration);
         // 恢復速度
-        speed = 1.3f;
+        speed = 6f;
+        is_stop = false;
     }
 }

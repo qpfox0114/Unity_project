@@ -1,14 +1,13 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class leftandright : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class Stretch : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     private Canvas canvas;
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
     private Vector3 initialPosition; // 記錄初始位置
     private int count; // 計數器
-
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -45,8 +44,7 @@ public class leftandright : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             if (hitObject.CompareTag("Manipulatable"))
             {
                 Debug.Log("Manipulatable object detected: " + hitObject.name); // 確認物體具有正確的標籤
-                Flip(hitObject); // 將 eventData 作為參數傳入 function
-                rectTransform.anchoredPosition = initialPosition; // 返回初始位置
+                StretchObject(hitObject);
             }
             else
             {
@@ -65,23 +63,18 @@ public class leftandright : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         }
     }
 
-    private bool flipped = false;
-
-    public void Flip(GameObject obj)
+    private void StretchObject(GameObject obj)
     {
         count++;
-        // 取得物體目前的Scale值
         Vector3 scale = obj.transform.localScale;
-
-        // 翻轉物體，將X軸的Scale值乘以-1
-        scale.x *= -1;
-
-        // 將新的Scale值設置給物體
-        obj.transform.localScale = scale;
-
-        // 更新翻轉狀態
-        flipped = !flipped;
+        if (scale.x >= scale.y)
+        {
+            obj.transform.localScale += new Vector3(1f, 0, 0);
+        }
+        else
+        {
+            obj.transform.localScale += new Vector3(0, 1f, 0);
+        }
+        Debug.Log("Stretched " + obj.name + " to " + obj.transform.localScale);
     }
-
-
 }

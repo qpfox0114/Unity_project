@@ -6,7 +6,8 @@ public class Enemy : MonoBehaviour
 {
     public float duration; // 敵人受到攻擊時停止移動的持續時間
     public float flashTime; // 敵人受到攻擊時閃爍紅色的持續時間
-    public int damage; // 敵人對玩家造成的傷害數值
+    public int damage = 5; // 敵人對玩家造成的傷害數值
+    public bool is_stop = false;
 
     private SpriteRenderer sr; // 用於控制敵人的 SpriteRenderer 組件
     private Color originalColor; // 保存敵人的原始顏色
@@ -31,10 +32,10 @@ public class Enemy : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         // 檢查碰撞對象是否有 "Player" 標籤，並且碰撞類型是 BoxCollider2D
-        if (other.gameObject.CompareTag("Player") && other.GetType().ToString() == "UnityEngine.BoxCollider2D")
+        if (other.gameObject.CompareTag("Player") && other.GetType().ToString() == "UnityEngine.CapsuleCollider2D")
         {
             // 如果玩家得分組件存在，對玩家造成傷害
-            if (playerScore != null)
+            if (playerScore != null && !is_stop)
             {
                 playerScore.DamegePlayer(damage);
             }
@@ -44,6 +45,7 @@ public class Enemy : MonoBehaviour
     // 敵人受到傷害時調用此方法
     public void TakeDamage(float duration)
     {
+        is_stop = true;
         // 讓敵人顏色閃爍紅色
         FlashColor(flashTime);
         // 暫停敵人的移動
