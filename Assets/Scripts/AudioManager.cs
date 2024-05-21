@@ -5,7 +5,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour{
     public AudioClip bgm; // 背景音樂
     // 看那些功能需要音效可以再加
-    public AudioCLip seBubble; // 得到泡泡
+    public AudioClip seBubble; // 得到泡泡
     public AudioClip seBlock; // 放置區塊
     public AudioClip seClick; // 點選功能
     public AudioClip seJump; // 向上跳
