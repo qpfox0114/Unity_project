@@ -5,7 +5,7 @@ using UnityEngine;
 using Flower;
 using UnityEngine.SceneManagement;
 
-public class NewBehaviourScript : MonoBehaviour
+public class IntroSenceController : MonoBehaviour
 {
     // Start is called before the first frame update
     FlowerSystem fs;
