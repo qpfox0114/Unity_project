@@ -91,5 +91,6 @@ public class controler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
             rectTransform.anchoredPosition = initialPosition;
         }
 
+        
     }
 }
