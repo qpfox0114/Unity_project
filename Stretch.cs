@@ -68,12 +68,13 @@ public class Stretch : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
         Vector3 scale = obj.transform.localScale;
         if (scale.x >= scale.y)
         {
-            obj.transform.localScale += new Vector3(1f, 0, 0);
+            obj.transform.localScale += new Vector3(0, 1f, 0);
         }
         else
         {
-            obj.transform.localScale += new Vector3(0, 1f, 0);
+            obj.transform.localScale += new Vector3(1f, 0, 0);
         }
         Debug.Log("Stretched " + obj.name + " to " + obj.transform.localScale);
     }
+
 }
