@@ -31,4 +31,15 @@ public class doorToNext : MonoBehaviour
             }
         }
     }
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player") && condition == true)
+        {
+            cc2d.enabled = true;
+            if (openAnimator != null)
+            {
+                openAnimator.SetTrigger("Close");
+            }
+        }
+    }
 }
