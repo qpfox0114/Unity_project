@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagent;
+using UnityEngine.SceneManagement;
 
 public class Scene : MonoBehaviour {
     public string SceneName; // 目標場景的名稱
