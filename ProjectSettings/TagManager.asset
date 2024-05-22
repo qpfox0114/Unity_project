@@ -52,3 +52,6 @@ TagManager:
   - name: item
     uniqueID: 3622930245
     locked: 0
+  - name: point
+    uniqueID: 174435945
+    locked: 0
