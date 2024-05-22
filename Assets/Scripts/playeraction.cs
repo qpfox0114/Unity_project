@@ -93,7 +93,7 @@ public class playeraction : MonoBehaviour
     // �T�w��s�ˬd��k�A�Ω��˴��O�_�b�a���W
     void FixedupdateCheck()
     {
-        isGround = Physics2D.OverlapCircle(foot.position, 2.0f, Ground); // �ϥέ��|���˴��}����m�O�_��Ĳ�a��
+        isGround = Physics2D.OverlapCircle(foot.position, 0.1f, Ground); // �ϥέ��|���˴��}����m�O�_��Ĳ�a��
     }
 
     // ��s�ˬd��k�A�Ω��˴����D��O�_�Q���U
