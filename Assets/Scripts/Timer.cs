@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    public int m_seconds;                 //倒數計時經換算的總秒數
+    public int m_seconds;          //倒數計時經換算的總秒數
 
     public int m_min;              //用於設定倒數計時的分鐘
     public int m_sec;              //用於設定倒數計時的秒數
@@ -43,7 +43,7 @@ public class Timer : MonoBehaviour
         }
 
         yield return new WaitForSeconds(1);   //時間結束時，顯示 00:00 停留一秒
-        m_gameOver.SetActive(true);           //時間結束時，畫面出現 GAME OVER
+        m_gameOver.SetActive(true);           //時間結束時，畫面出現 GAME COMPLETE
         Time.timeScale = 0;                   //時間結束時，控制遊戲暫停無法操作
     }
 }

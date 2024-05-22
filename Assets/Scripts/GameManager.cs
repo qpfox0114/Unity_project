@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     private bool isPause; // 紀錄遊戲是否暫停
 
     // 其他 UI 元素
-    public Button ContinueButton; // 繼續遊戲按鈕
+    public Button ContinueButton; // 叉叉
     public Button RestartButton; // 重新開始按鈕
     public Button QuitButton; // 退出遊戲按鈕
     public Button MuteButton; // 靜音按鈕
