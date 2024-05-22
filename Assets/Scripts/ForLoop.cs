@@ -8,14 +8,19 @@ public class ForLoop : MonoBehaviour
 {
     public Text displayText;
     public Text For;
+    public GameObject virus;
     public float waitTime;
+    public Transform xmin;
+    public Transform xmax;
 
     private int numOfFor;
     private float wait;
+    private Boundaries boundaries;
 
     // Start is called before the first frame update
     void Start()
     {
+        boundaries = GameObject.FindGameObjectWithTag("Player").GetComponent<Boundaries>();
         wait = waitTime;
         if (PlayerPrefs.HasKey("NumOfFor"))
         {
@@ -41,6 +46,7 @@ public class ForLoop : MonoBehaviour
                 numOfFor--;
                 waitTime = wait;
                 displayText.text = "" + numOfFor;
+                Instantiate(virus, GetRandomPos(), transform.rotation);
             }
             else
             {
@@ -51,7 +57,14 @@ public class ForLoop : MonoBehaviour
         {
             displayText.gameObject.SetActive(false);
             For.gameObject.SetActive(false);
+            boundaries.enabled = false;
             numOfFor--;
         }
+    }
+
+    Vector2 GetRandomPos()
+    {
+        Vector2 rndPos = new Vector2(Random.Range(xmin.position.x, xmax.position.x), xmin.position.y);
+        return rndPos;
     }
 }
