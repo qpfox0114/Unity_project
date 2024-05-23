@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class popUpHint : MonoBehaviour
 {
-    public GameObject hint;  // 参考提示窗口的Panel
+    public GameObject hint;  // 参考提示窗口
     public Button hintButton;     // 参考显示提示的按钮
     public Button closeButton;    // 参考关闭提示的按钮
 
