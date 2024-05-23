@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Timer : MonoBehaviour
 {
@@ -10,12 +11,13 @@ public class Timer : MonoBehaviour
     public int m_min;              //用於設定倒數計時的分鐘
     public int m_sec;              //用於設定倒數計時的秒數
 
-    public Text m_timer;           //設定畫面倒數計時的文字
+    public TMP_Text m_timer;           //設定畫面倒數計時的文字
     public GameObject m_gameOver;  //設定 GAME OVER 物件
 
     void Start()
     {
         StartCoroutine(Countdown());   //呼叫倒數計時的協程
+        m_gameOver.SetActive(false); 
     }
 
     IEnumerator Countdown()

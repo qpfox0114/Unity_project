@@ -36,8 +36,13 @@ public class VolumeController : MonoBehaviour
         {
             previousVolume = value;
             isMuted = false;
-            UpdateMuteButtonImage();
+            
         }
+        else
+        {
+            isMuted = true;
+        }
+        UpdateMuteButtonImage();
     }
 
     // 切換靜音狀態
@@ -49,15 +54,18 @@ public class VolumeController : MonoBehaviour
             if (isMuted)
             {
                 audioSource.volume = 0;
+                volumeSlider.value = 0;
                 isMuted = true;
             }
             else
             {
                 audioSource.volume = previousVolume;
+                volumeSlider.value = previousVolume;
                 isMuted = false;
             }
+            UpdateMuteButtonImage();
         }
-        UpdateMuteButtonImage();
+        
     }
 
     // 更新靜音按鈕圖案
