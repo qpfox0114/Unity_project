@@ -41,7 +41,7 @@ public class PlayerScore : MonoBehaviour
         textscore.text = "" + score;
     }
 
-    void BlinkPlayer(int numBlinks, float seconds)
+    public void BlinkPlayer(int numBlinks, float seconds)
     {
         StartCoroutine(DoBlinks(numBlinks, seconds));
     }
