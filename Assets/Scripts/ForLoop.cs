@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class ForLoop : MonoBehaviour
 {
     public Text displayText;
-    public Text For;
     public GameObject virus;
     public float waitTime;
     public Transform xmin;
@@ -56,7 +55,6 @@ public class ForLoop : MonoBehaviour
         else if (numOfFor == 0)
         {
             displayText.gameObject.SetActive(false);
-            For.gameObject.SetActive(false);
             boundaries.enabled = false;
             numOfFor--;
         }

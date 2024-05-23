@@ -11,7 +11,7 @@ public class throwItem : MonoBehaviour
 
     void Start()
     {
-        computerQuantity.text = ": " + quantity;
+        //computerQuantity.text = ": " + quantity;
     }
 
     void Update()
@@ -22,7 +22,7 @@ public class throwItem : MonoBehaviour
             // 生成指定的物件（電腦預製體），位置和旋轉與當前物件相同
             Instantiate(computer, transform.position, transform.rotation);
             quantity--;
-            computerQuantity.text = ": " + quantity;
+            //computerQuantity.text = ": " + quantity;
         }
     }
 }
