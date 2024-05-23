@@ -15,7 +15,6 @@ public class screenflash : MonoBehaviour
     {
         defaultColor = img.color;
     }
-
     void Update()
     {
 
