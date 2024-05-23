@@ -90,6 +90,5 @@ public class controler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
             Debug.Log("No object hit by Raycast, returning to original position");
             rectTransform.anchoredPosition = initialPosition;
         }
-
     }
 }

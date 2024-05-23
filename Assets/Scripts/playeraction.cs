@@ -4,99 +4,99 @@ using UnityEngine;
 
 public class playeraction : MonoBehaviour
 {
-    [Header("³t«×¬ÛÃö")]
-    public float playerMoveSpeed; // ª±®a²¾°Ê³t«×
-    public float playerJumpSpeed; // ª±®a¸õÅD³t«×
+    [Header("ï¿½tï¿½×¬ï¿½ï¿½ï¿½")]
+    public float playerMoveSpeed; // ï¿½ï¿½ï¿½aï¿½ï¿½ï¿½Ê³tï¿½ï¿½
+    public float playerJumpSpeed; // ï¿½ï¿½ï¿½aï¿½ï¿½ï¿½Dï¿½tï¿½ï¿½
 
-    [Header("¸õÅD¦¸¼Æ")]
-    public float playerJumpCount = 2; // ª±®a¸õÅD¦¸¼Æ
+    [Header("ï¿½ï¿½ï¿½Dï¿½ï¿½ï¿½ï¿½")]
+    public float playerJumpCount = 2; // ï¿½ï¿½ï¿½aï¿½ï¿½ï¿½Dï¿½ï¿½ï¿½ï¿½
 
-    [Header("§PÂ_¬ÛÃö")]
-    public bool isGround; // ¬O§_¦b¦a­±¤W
-    public bool pressedJump; // ¬O§_«ö¤U¸õÅDÁä
+    [Header("ï¿½Pï¿½_ï¿½ï¿½ï¿½ï¿½")]
+    public bool isGround; // ï¿½Oï¿½_ï¿½bï¿½aï¿½ï¿½ï¿½W
+    public bool pressedJump; // ï¿½Oï¿½_ï¿½ï¿½ï¿½Uï¿½ï¿½ï¿½Dï¿½ï¿½
 
-    [Header("¨ä¥L²Õ¥ó")]
-    public Transform foot; // ¥Î©óÀË´ú¦a­±ªº¸}ªº¦ì¸m
-    public LayerMask Ground; // ¥Î©ó§PÂ_­þ¨Çª«Åé¬O¦a­±
-    public Rigidbody2D playerRB; // ª±®a¨¤¦âªº­èÅé²Õ¥ó
-    public Collider2D playerColl; // ª±®a¨¤¦âªº¸I¼²¾¹²Õ¥ó
-    public Animator playerAnim; // ª±®a¨¤¦âªº°Êµe±±¨î¾¹²Õ¥ó
+    [Header("ï¿½ï¿½Lï¿½Õ¥ï¿½")]
+    public Transform foot; // ï¿½Î©ï¿½ï¿½Ë´ï¿½ï¿½aï¿½ï¿½ï¿½ï¿½ï¿½}ï¿½ï¿½ï¿½ï¿½m
+    public LayerMask Ground; // ï¿½Î©ï¿½Pï¿½_ï¿½ï¿½ï¿½Çªï¿½ï¿½ï¿½Oï¿½aï¿½ï¿½
+    public Rigidbody2D playerRB; // ï¿½ï¿½ï¿½aï¿½ï¿½ï¿½âªºï¿½ï¿½ï¿½ï¿½Õ¥ï¿½
+    public Collider2D playerColl; // ï¿½ï¿½ï¿½aï¿½ï¿½ï¿½âªºï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½Õ¥ï¿½
+    public Animator playerAnim; // ï¿½ï¿½ï¿½aï¿½ï¿½ï¿½âªºï¿½Êµeï¿½ï¿½ï¿½î¾¹ï¿½Õ¥ï¿½
 
     void Start()
     {
-        // Àò¨úª±®aªº¸I¼²¾¹²Õ¥ó
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½aï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½Õ¥ï¿½
         playerColl = GetComponent<Collider2D>();
-        // Àò¨úª±®aªº­èÅé²Õ¥ó
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¥ï¿½
         playerRB = GetComponent<Rigidbody2D>();
-        // Àò¨úª±®aªº°Êµe±±¨î¾¹²Õ¥ó
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½aï¿½ï¿½ï¿½Êµeï¿½ï¿½ï¿½î¾¹ï¿½Õ¥ï¿½
         playerAnim = GetComponent<Animator>();
     }
 
     void Update()
     {
-        // §ó·sª¬ºAÀË¬d
+        // ï¿½ï¿½sï¿½ï¿½ï¿½Aï¿½Ë¬d
         UpdateCheck();
-        // ¤Á´«°Êµeª¬ºA
+        // ï¿½ï¿½ï¿½ï¿½ï¿½Êµeï¿½ï¿½ï¿½A
         AnimSwitch();
     }
 
     void FixedUpdate()
     {
-        // ©T©w§ó·sÀË¬d
+        // ï¿½Tï¿½wï¿½ï¿½sï¿½Ë¬d
         FixedupdateCheck();
-        // ±±¨îª±®a²¾°Ê
+        // ï¿½ï¿½ï¿½îª±ï¿½aï¿½ï¿½ï¿½ï¿½
         playerMove();
-        // ±±¨îª±®a¸õÅD
+        // ï¿½ï¿½ï¿½îª±ï¿½aï¿½ï¿½ï¿½D
         playerJump();
     }
 
-    // ±±¨îª±®a²¾°Êªº¤èªk
+    // ï¿½ï¿½ï¿½îª±ï¿½aï¿½ï¿½ï¿½Êªï¿½ï¿½ï¿½k
     void playerMove()
     {
-        float horizontalNum = Input.GetAxis("Horizontal"); // Àò¨ú¤ô¥­¿é¤J
-        float faceNum = Input.GetAxisRaw("Horizontal"); // Àò¨ú­ì©l¤ô¥­¿é¤J¡A¥Î©óÂ½Âà¨¤¦â
-        playerRB.velocity = new Vector2(playerMoveSpeed * horizontalNum, playerRB.velocity.y); // ³]©w¨¤¦âªº¤ô¥­³t«×
-        playerAnim.SetFloat("run", Mathf.Abs(playerMoveSpeed * horizontalNum)); // ³]©w¹B¦æ°Êµe°Ñ¼Æ
+        float horizontalNum = Input.GetAxis("Horizontal"); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½J
+        float faceNum = Input.GetAxisRaw("Horizontal"); // ï¿½ï¿½ï¿½ï¿½ï¿½lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½Aï¿½Î©ï¿½Â½ï¿½à¨¤ï¿½ï¿½
+        playerRB.velocity = new Vector2(playerMoveSpeed * horizontalNum, playerRB.velocity.y); // ï¿½]ï¿½wï¿½ï¿½ï¿½âªºï¿½ï¿½ï¿½ï¿½ï¿½tï¿½ï¿½
+        playerAnim.SetFloat("run", Mathf.Abs(playerMoveSpeed * horizontalNum)); // ï¿½]ï¿½wï¿½Bï¿½ï¿½Êµeï¿½Ñ¼ï¿½
 
-        // ¦pªG¤ô¥­¿é¤J¤£¬°¹s¡AÂ½Âà¨¤¦âªº´Â¦V
+        // ï¿½pï¿½Gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½sï¿½AÂ½ï¿½à¨¤ï¿½âªºï¿½Â¦V
         if (faceNum != 0)
         {
             transform.localScale = new Vector3(faceNum, transform.localScale.y, transform.localScale.z);
         }
     }
 
-    // ±±¨îª±®a¸õÅDªº¤èªk
+    // ï¿½ï¿½ï¿½îª±ï¿½aï¿½ï¿½ï¿½Dï¿½ï¿½ï¿½ï¿½k
     void playerJump()
     {
-        // ¦pªG¤£¦b¦a­±¥B¸õÅD¦¸¼Æ¤Ö©ó1¡A«h¤£¯à¸õÅD
+        // ï¿½pï¿½Gï¿½ï¿½ï¿½bï¿½aï¿½ï¿½ï¿½Bï¿½ï¿½ï¿½Dï¿½ï¿½ï¿½Æ¤Ö©ï¿½1ï¿½Aï¿½hï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D
         if (!isGround && playerJumpCount < 1)
         {
             pressedJump = false;
         }
 
-        // ¦pªG«ö¤U¸õÅDÁä¥B¦b¦a­±¤W¡A°õ¦æ¸õÅD
+        // ï¿½pï¿½Gï¿½ï¿½ï¿½Uï¿½ï¿½ï¿½Dï¿½ï¿½Bï¿½bï¿½aï¿½ï¿½ï¿½Wï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D
         if (pressedJump && isGround)
         {
             pressedJump = false;
-            playerRB.velocity = new Vector2(playerRB.velocity.x, playerJumpSpeed); // ³]©w¨¤¦âªº««ª½³t«×
-            playerJumpCount = 1; // ­«¸m¸õÅD¦¸¼Æ
+            playerRB.velocity = new Vector2(playerRB.velocity.x, playerJumpSpeed); // ï¿½]ï¿½wï¿½ï¿½ï¿½âªºï¿½ï¿½ï¿½ï¿½ï¿½tï¿½ï¿½
+            playerJumpCount = 1; // ï¿½ï¿½ï¿½mï¿½ï¿½ï¿½Dï¿½ï¿½ï¿½ï¿½
         }
-        // ¦pªG«ö¤U¸õÅDÁä¥B¦³³Ñ¾l¸õÅD¦¸¼Æ¥B¤£¦b¦a­±¤W¡A°õ¦æÂù¸õ
+        // ï¿½pï¿½Gï¿½ï¿½ï¿½Uï¿½ï¿½ï¿½Dï¿½ï¿½Bï¿½ï¿½ï¿½Ñ¾lï¿½ï¿½ï¿½Dï¿½ï¿½ï¿½Æ¥Bï¿½ï¿½ï¿½bï¿½aï¿½ï¿½ï¿½Wï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         else if (pressedJump && playerJumpCount > 0 && !isGround)
         {
             pressedJump = false;
-            playerRB.velocity = new Vector2(playerRB.velocity.x, playerJumpSpeed); // ³]©w¨¤¦âªº««ª½³t«×
-            playerJumpCount--; // ´î¤Ö¸õÅD¦¸¼Æ
+            playerRB.velocity = new Vector2(playerRB.velocity.x, playerJumpSpeed); // ï¿½]ï¿½wï¿½ï¿½ï¿½âªºï¿½ï¿½ï¿½ï¿½ï¿½tï¿½ï¿½
+            playerJumpCount--; // ï¿½ï¿½Ö¸ï¿½ï¿½Dï¿½ï¿½ï¿½ï¿½
         }
     }
 
-    // ©T©w§ó·sÀË¬d¤èªk¡A¥Î©óÀË´ú¬O§_¦b¦a­±¤W
+    // ï¿½Tï¿½wï¿½ï¿½sï¿½Ë¬dï¿½ï¿½kï¿½Aï¿½Î©ï¿½ï¿½Ë´ï¿½ï¿½Oï¿½_ï¿½bï¿½aï¿½ï¿½ï¿½W
     void FixedupdateCheck()
     {
-        isGround = Physics2D.OverlapCircle(foot.position, 0.1f, Ground); // ¨Ï¥Î­«Å|¶êÀË´ú¸}³¡¦ì¸m¬O§_±µÄ²¦a­±
+        isGround = Physics2D.OverlapCircle(foot.position, 0.1f, Ground); // ï¿½Ï¥Î­ï¿½ï¿½|ï¿½ï¿½ï¿½Ë´ï¿½ï¿½}ï¿½ï¿½ï¿½ï¿½mï¿½Oï¿½_ï¿½ï¿½Ä²ï¿½aï¿½ï¿½
     }
 
-    // §ó·sÀË¬d¤èªk¡A¥Î©óÀË´ú¸õÅDÁä¬O§_³Q«ö¤U
+    // ï¿½ï¿½sï¿½Ë¬dï¿½ï¿½kï¿½Aï¿½Î©ï¿½ï¿½Ë´ï¿½ï¿½ï¿½ï¿½Dï¿½ï¿½Oï¿½_ï¿½Qï¿½ï¿½ï¿½U
     void UpdateCheck()
     {
         if (Input.GetButtonDown("Jump"))
@@ -105,15 +105,15 @@ public class playeraction : MonoBehaviour
         }
     }
 
-    // ¤Á´«°Êµeª¬ºAªº¤èªk
+    // ï¿½ï¿½ï¿½ï¿½ï¿½Êµeï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½k
     void AnimSwitch()
     {
-        // ¦pªG¦b¦a­±¤W¡A³]©w¸õÅD°Êµe°Ñ¼Æ¬° false
+        // ï¿½pï¿½Gï¿½bï¿½aï¿½ï¿½ï¿½Wï¿½Aï¿½]ï¿½wï¿½ï¿½ï¿½Dï¿½Êµeï¿½Ñ¼Æ¬ï¿½ false
         if (isGround)
         {
             playerAnim.SetBool("jump", false);
         }
-        // ¦pªG¤£¦b¦a­±¥B««ª½³t«×¤£¬°¹s¡A³]©w¸õÅD°Êµe°Ñ¼Æ¬° true
+        // ï¿½pï¿½Gï¿½ï¿½ï¿½bï¿½aï¿½ï¿½ï¿½Bï¿½ï¿½ï¿½ï¿½ï¿½tï¿½×¤ï¿½ï¿½ï¿½ï¿½sï¿½Aï¿½]ï¿½wï¿½ï¿½ï¿½Dï¿½Êµeï¿½Ñ¼Æ¬ï¿½ true
         if (!isGround && playerRB.velocity.y != 0)
         {
             playerAnim.SetBool("jump", true);
