@@ -49,10 +49,12 @@ public class VolumeController : MonoBehaviour
             if (isMuted)
             {
                 audioSource.volume = 0;
+                isMuted = true;
             }
             else
             {
                 audioSource.volume = previousVolume;
+                isMuted = false;
             }
         }
         UpdateMuteButtonImage();
