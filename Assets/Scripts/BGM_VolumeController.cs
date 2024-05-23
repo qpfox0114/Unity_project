@@ -19,7 +19,7 @@ public class BGM_VolumeController : MonoBehaviour
         bgm_volumeSlider.onValueChanged.AddListener(ChangeVolume);
         bgm_MuteButton.onClick.AddListener(Mute);
         // 設置靜音按鈕初始圖案
-        UpdateMuteButtonImage();
+        Updatebgm_MuteButtonImage();
     }
 
     // 改變音量
@@ -31,8 +31,12 @@ public class BGM_VolumeController : MonoBehaviour
         {
             previousVolume = value;
             isMuted = false;
-            UpdateMuteButtonImage();
         }
+        else
+        {
+            isMuted = true;
+        }
+        Updatebgm_MuteButtonImage();
     }
 
     // 靜音功能
@@ -44,26 +48,29 @@ public class BGM_VolumeController : MonoBehaviour
             previousVolume = bgm_audioSource.volume;
             bgm_audioSource.volume = 0;
             bgm_volumeSlider.value = 0;
+            isMuted = true;
         }
         // 如果當前音量為零，將音量恢復到之前的值
         else
         {
             bgm_audioSource.volume = previousVolume;
             bgm_volumeSlider.value = previousVolume;
+            isMuted = false;
         }
-        UpdateMuteButtonImage();
+        Updatebgm_MuteButtonImage();
     }
 
     // 更新靜音按鈕圖案
-    private void UpdateMuteButtonImage()
+    private void Updatebgm_MuteButtonImage()
     {
         if (isMuted)
         {
-            muteButton.image.sprite = muteImage;
+            bgm_MuteButton.image.sprite = muteImage;
         }
         else
         {
-            muteButton.image.sprite = unmuteImage;
+            bgm_MuteButton.image.sprite = unmuteImage;
         }
     }
+
 }

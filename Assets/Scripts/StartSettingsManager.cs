@@ -1,6 +1,7 @@
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Start_SettingsManager : MonoBehaviour
+public class StartSettingsManager : MonoBehaviour
 {
     public GameObject settingsPanel; // 設定面板的遊戲物件
 
