@@ -9,9 +9,6 @@ public class popUpHint : MonoBehaviour
 
     void Start()
     {
-        // 初始化时隐藏提示窗口
-        hint.SetActive(false);
-
         // 为按钮添加监听事件
         hintButton.onClick.AddListener(ShowHint);
         closeButton.onClick.AddListener(HideHint);
