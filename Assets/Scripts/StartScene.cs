@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class StartScene : MonoBehaviour
 {
@@ -16,11 +17,11 @@ public class StartScene : MonoBehaviour
 
     void OnStartButtonPressed()
     {
-        // 裡面放觸發[start]按鈕後會做的事
+        SceneManager.LoadScene("intro");
     }
 
     void OnSettingButtonPressed()
     {
-        // 裡面放觸發[Setting]按鈕後會做的事
+        // 已經設定完要跳出 setting panel
     }
 }
