@@ -9,6 +9,10 @@ TagManager:
   - fan
   - Weapon
   - bigPlayer
+  - Manipulatable1
+  - coffee
+  - Manipulatable2
+  - electricity
   layers:
   - Default
   - TransparentFX

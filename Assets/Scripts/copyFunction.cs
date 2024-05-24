@@ -6,22 +6,22 @@ public class copyFunction : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     private Canvas canvas;
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
-    private Vector3 initialPosition; // °O¿ýªì©l¦ì¸m
-    private CopyObjectOnDrop copyObjectScript; // °Ñ¦Ò CopyObjectOnDrop ¸}¥»
+    private Vector3 initialPosition; // ï¿½Oï¿½ï¿½ï¿½ï¿½lï¿½ï¿½m
+    private CopyObjectOnDrop copyObjectScript; // ï¿½Ñ¦ï¿½ CopyObjectOnDrop ï¿½}ï¿½ï¿½
 
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         canvas = GetComponentInParent<Canvas>();
-        initialPosition = rectTransform.anchoredPosition; // ¦b Awake ¤¤°O¿ýªì©l¦ì¸m
-        copyObjectScript = FindObjectOfType<CopyObjectOnDrop>(); // ´M§ä³õ´º¤¤ªº CopyObjectOnDrop ¸}¥»¹ê¨Ò
+        initialPosition = rectTransform.anchoredPosition; // ï¿½b Awake ï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½lï¿½ï¿½m
+        copyObjectScript = FindObjectOfType<CopyObjectOnDrop>(); // ï¿½Mï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ CopyObjectOnDrop ï¿½}ï¿½ï¿½ï¿½ï¿½ï¿½
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        canvasGroup.alpha = 0.6f; // ©ì°Ê¹Lµ{¤¤¨Ï UI ¤¸¯À¥b³z©ú
-        canvasGroup.blocksRaycasts = false; // ¤¹³\®g½u¬ï³z³o­Ó UI ¤¸¯À
+        canvasGroup.alpha = 0.6f; // ï¿½ï¿½Ê¹Lï¿½{ï¿½ï¿½ï¿½ï¿½ UI ï¿½ï¿½ï¿½ï¿½ï¿½bï¿½zï¿½ï¿½
+        canvasGroup.blocksRaycasts = false; // ï¿½ï¿½ï¿½\ï¿½gï¿½uï¿½ï¿½zï¿½oï¿½ï¿½ UI ï¿½ï¿½ï¿½ï¿½
         Debug.Log("Begin Drag: " + gameObject.name);
     }
 
@@ -36,47 +36,47 @@ public class copyFunction : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         canvasGroup.blocksRaycasts = true;
         Debug.Log("End Drag: " + gameObject.name);
 
-        // ½T»{ Camera.main ¤£¬O null
+        // ï¿½Tï¿½{ Camera.main ï¿½ï¿½ï¿½O null
         if (Camera.main == null)
         {
-            Debug.LogError("Camera.main ¬O null¡C½Ð½T«O³õ´º¤¤¦³¤@­Ó Main Camera¡A¨Ã±N¨ä¼ÐÅÒ³]¸m¬° MainCamera¡C");
+            Debug.LogError("Camera.main ï¿½O nullï¿½Cï¿½Ð½Tï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½@ï¿½ï¿½ Main Cameraï¿½Aï¿½Ã±Nï¿½ï¿½ï¿½ï¿½Ò³]ï¿½mï¿½ï¿½ MainCameraï¿½C");
             rectTransform.anchoredPosition = initialPosition;
             return;
         }
 
-        // °õ¦æ 2D ®g½uÀË´ú¨ÓÀË´ú«D UI ª«Åé
+        // ï¿½ï¿½ï¿½ï¿½ 2D ï¿½gï¿½uï¿½Ë´ï¿½ï¿½ï¿½ï¿½Ë´ï¿½ï¿½D UI ï¿½ï¿½ï¿½ï¿½
         Vector2 raycastPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(raycastPosition, Vector2.zero);
         if (hit.collider != null)
         {
             GameObject hitObject = hit.collider.gameObject;
-            Debug.Log("Hit: " + hitObject.name); // ½T»{®g½uÀË´ú¨ìªºª«Åé
+            Debug.Log("Hit: " + hitObject.name); // ï¿½Tï¿½{ï¿½gï¿½uï¿½Ë´ï¿½ï¿½ìªºï¿½ï¿½ï¿½ï¿½
             if (hitObject.CompareTag("Manipulatable"))
             {
-                Debug.Log("Manipulatable object detected: " + hitObject.name); // ½T»{ª«Åé¨ã¦³¥¿½Tªº¼ÐÅÒ
+                Debug.Log("Manipulatable object detected: " + hitObject.name); // ï¿½Tï¿½{ï¿½ï¿½ï¿½ï¿½ã¦³ï¿½ï¿½ï¿½Tï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 if (copyObjectScript != null)
                 {
-                    Debug.Log("½Õ¥Î CopyObject ¤èªk");
-                    copyObjectScript.CopyObject(); // ½Õ¥Î CopyObjectOnDrop ¤¤ªº CopyObject ¤èªk
+                    Debug.Log("great");
+                    copyObjectScript.CopyObject(); // ï¿½Õ¥ï¿½ CopyObjectOnDrop ï¿½ï¿½ï¿½ï¿½ CopyObject ï¿½ï¿½k
                     rectTransform.anchoredPosition = initialPosition;
-                    rectTransform.gameObject.SetActive(false); // ÁôÂÃ UI ¤¸¯À
+                    rectTransform.gameObject.SetActive(false); // ï¿½ï¿½ï¿½ï¿½ UI ï¿½ï¿½ï¿½ï¿½
                 }
                 else
                 {
-                    Debug.LogError("copyObjectScript ¬O null¡C½Ð¦b³õ´º¤¤²K¥[ CopyObjectOnDrop ¸}¥»¹ê¨Ò¡C");
+                    Debug.LogError("copyObjectScript ï¿½O nullï¿½Cï¿½Ð¦bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Kï¿½[ CopyObjectOnDrop ï¿½}ï¿½ï¿½ï¿½ï¿½Ò¡C");
                     rectTransform.anchoredPosition = initialPosition;
                 }
             }
             else
             {
-                Debug.Log("ÀË´ú¨ìªºª«Åé¼ÐÅÒ¤£¥¿½T¡Aªð¦^ªì©l¦ì¸m");
-                rectTransform.anchoredPosition = initialPosition; // ªð¦^ªì©l¦ì¸m
+                Debug.Log("Not");
+                rectTransform.anchoredPosition = initialPosition; // ï¿½ï¿½^ï¿½ï¿½lï¿½ï¿½m
             }
         }
         else
         {
-            Debug.Log("¨S¦³ÀË´ú¨ìª«Åé¡Aªð¦^ªì©l¦ì¸m");
-            rectTransform.anchoredPosition = initialPosition; // ¦pªG¨S¦³ÀË´ú¨ì¥Ø¼Ðª«Åé¡Aªð¦^ªì©l¦ì¸m
+            Debug.Log("123");
+            rectTransform.anchoredPosition = initialPosition; // ï¿½pï¿½Gï¿½Sï¿½ï¿½ï¿½Ë´ï¿½ï¿½ï¿½Ø¼Ðªï¿½ï¿½ï¿½Aï¿½ï¿½^ï¿½ï¿½lï¿½ï¿½m
         }
     }
 }

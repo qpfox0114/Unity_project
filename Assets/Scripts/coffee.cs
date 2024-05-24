@@ -5,14 +5,17 @@ using UnityEngine;
 public class coffee : MonoBehaviour
 {
     public float fastSpeed;
+    public float fastJump;
     public float SpeedUpTime;
     private float originalSpeed;
+    private float originaljump;
     private playeraction playeraction;
 
     void Start()
     {
         playeraction = GetComponent<playeraction>();
         originalSpeed = playeraction.playerMoveSpeed;
+        originaljump = playeraction.playerJumpSpeed;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -22,6 +25,7 @@ public class coffee : MonoBehaviour
             if (playeraction != null)
             {
                 playeraction.playerMoveSpeed = fastSpeed;
+                playeraction.playerJumpSpeed = fastJump;
             }
             StartCoroutine(SpeedUp());
         }
@@ -34,5 +38,6 @@ public class coffee : MonoBehaviour
         // «ì´_³t«×
         Debug.Log(originalSpeed);
         playeraction.playerMoveSpeed = originalSpeed;
+        playeraction.playerJumpSpeed = originaljump;
     }
 }
