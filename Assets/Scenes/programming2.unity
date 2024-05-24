@@ -5015,6 +5015,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0
       objectReference: {fileID: 0}
+    - target: {fileID: 2094194970634822373, guid: 46f4c04c83e8b654db000b530b93d41f, type: 3}
+      propertyPath: m_Size.y
+      value: 0.90073365
+      objectReference: {fileID: 0}
+    - target: {fileID: 2094194970634822373, guid: 46f4c04c83e8b654db000b530b93d41f, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.1305637
+      objectReference: {fileID: 0}
     - target: {fileID: 4123756121406551515, guid: 46f4c04c83e8b654db000b530b93d41f, type: 3}
       propertyPath: m_Name
       value: Mov 1
@@ -5712,6 +5720,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 413243299}
     m_Modifications:
+    - target: {fileID: 2094194970634822373, guid: 46f4c04c83e8b654db000b530b93d41f, type: 3}
+      propertyPath: m_Size.y
+      value: 0.6584363
+      objectReference: {fileID: 0}
+    - target: {fileID: 2094194970634822373, guid: 46f4c04c83e8b654db000b530b93d41f, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.2779746
+      objectReference: {fileID: 0}
     - target: {fileID: 4123756121406551515, guid: 46f4c04c83e8b654db000b530b93d41f, type: 3}
       propertyPath: m_Name
       value: Mov
