@@ -12,6 +12,7 @@ TagManager:
   - Bubble
   - Manipulatable
   - Manipulatable1
+  - electricity
   layers:
   - Default
   - TransparentFX
