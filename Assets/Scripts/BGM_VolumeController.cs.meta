@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Scripts/BGM_VolumeController.cs.meta
+guid: 44917d22229c4824fb001a5ba89f83fa
+=======
+guid: 8670d15df751ddc4c8ef8e1bc6783e82
+>>>>>>> 5efa2ac21ff845186ba91e6988f886406c0226e4:Assets/Scripts/ChangeScene.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
