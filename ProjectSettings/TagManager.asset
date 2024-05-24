@@ -9,6 +9,8 @@ TagManager:
   - fan
   - Weapon
   - bigPlayer
+  - coffee
+  - Bubble
   layers:
   - Default
   - TransparentFX
