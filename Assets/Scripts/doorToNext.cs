@@ -5,6 +5,7 @@ public class doorToNext : MonoBehaviour
 {
     private CapsuleCollider2D cc2d;
     private bool condition = false;
+    private bool is_open = false;
     private Animator openAnimator;
     void Start()
     {
@@ -22,24 +23,26 @@ public class doorToNext : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         // 檢查碰撞對象是否有 "Player" 標籤
-        if (other.gameObject.CompareTag("Player") && condition == true) 
+        if (other.gameObject.CompareTag("Player") && condition == true && !is_open) 
         {
             cc2d.enabled = false;
             if (openAnimator != null)
             {
                 openAnimator.SetTrigger("Open");
             }
+            is_open = true;
         }
     }
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player") && condition == true)
+        if (other.gameObject.CompareTag("Player") && condition == true && is_open)
         {
             cc2d.enabled = true;
             if (openAnimator != null)
             {
                 openAnimator.SetTrigger("Close");
             }
+            is_open = false;
         }
     }
 }

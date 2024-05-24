@@ -1,16 +1,20 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Collections;
 
 public class small : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+    private Sleep Sleep;
+    public GameObject smallThing;
     private Canvas canvas;
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
     private Vector3 initialPosition; // 記錄初始位置
     private int count; // 計數器
-
     private void Awake()
     {
+        Sleep = smallThing.GetComponent<Sleep>();
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         canvas = GetComponentInParent<Canvas>();
@@ -63,11 +67,16 @@ public class small : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
         }
     }
 
-    private void ShrinkObject(GameObject obj)
+    public void ShrinkObject(GameObject obj)
     {
         count++;
         obj.transform.localScale -= new Vector3(0.5f, 0.5f, 0.5f); // 顯著減少縮放
-        if (obj.transform.localScale.x < 0.1f) obj.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f); // 防止縮放為負或零
+        if (obj.transform.localScale.x < 0.1f) {
+            obj.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f); // 防止縮放為負或零
+            count--;
+            Sleep.ShowObject();
+        }
         Debug.Log("Shrunk " + obj.name + " to " + obj.transform.localScale);
     }
+    
 }

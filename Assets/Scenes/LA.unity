@@ -610,13 +610,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Virtual Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 5577701993704052864, guid: f971dd88af276824c8af77e278635521, type: 3}
+      propertyPath: m_Follow
+      value: 
+      objectReference: {fileID: 1001081286}
     - target: {fileID: 6848692580271785153, guid: f971dd88af276824c8af77e278635521, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.3415756
+      value: -4.241577
       objectReference: {fileID: 0}
     - target: {fileID: 6848692580271785153, guid: f971dd88af276824c8af77e278635521, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.41999984
+      value: 15.456941
       objectReference: {fileID: 0}
     - target: {fileID: 6848692580271785153, guid: f971dd88af276824c8af77e278635521, type: 3}
       propertyPath: m_LocalPosition.z
@@ -655,6 +659,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f971dd88af276824c8af77e278635521, type: 3}
+--- !u!4 &1001081286 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2319095478297791638, guid: 0ccc5ea839db3ec4fbde0990f56fe724, type: 3}
+  m_PrefabInstance: {fileID: 57903233}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1406417652
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1393,11 +1402,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1812010530584984831, guid: 6a889fdd2552a8e4891b1700234984cc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.3415756
+      value: -4.241577
       objectReference: {fileID: 0}
     - target: {fileID: 1812010530584984831, guid: 6a889fdd2552a8e4891b1700234984cc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.41999984
+      value: 15.456941
       objectReference: {fileID: 0}
     - target: {fileID: 1812010530584984831, guid: 6a889fdd2552a8e4891b1700234984cc, type: 3}
       propertyPath: m_LocalPosition.z
