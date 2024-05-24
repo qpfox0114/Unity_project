@@ -22,6 +22,7 @@ public class ArrowWay : MonoBehaviour
         {
             if(areaEffector.forceMagnitude != 0)
             areaEffector.forceMagnitude = 0;
+            gameObject.SetActive(false);
         }
     }
 }
