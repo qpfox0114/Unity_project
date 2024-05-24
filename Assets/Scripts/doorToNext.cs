@@ -4,7 +4,7 @@ using UnityEngine;
 public class doorToNext : MonoBehaviour
 {
     private CapsuleCollider2D cc2d;
-    private bool condition = false;
+    public bool condition = false;
     private bool is_open = false;
     private Animator openAnimator;
     void Start()
@@ -15,10 +15,6 @@ public class doorToNext : MonoBehaviour
 
     void Update()
     {
-        if(condition == false) //這裡寫達成條件
-        { 
-            condition = true;
-        }
     }
     void OnTriggerEnter2D(Collider2D other)
     {

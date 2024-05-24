@@ -10,6 +10,8 @@ TagManager:
   - coffee
   - Weapon
   - Bubble
+  - Manipulatable
+  - Manipulatable1
   layers:
   - Default
   - TransparentFX
