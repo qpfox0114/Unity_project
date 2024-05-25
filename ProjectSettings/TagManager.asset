@@ -13,6 +13,7 @@ TagManager:
   - Manipulatable
   - Manipulatable1
   - electricity
+  - teacher
   layers:
   - Default
   - TransparentFX
@@ -55,6 +56,9 @@ TagManager:
     locked: 0
   - name: Item
     uniqueID: 1514296931
+    locked: 0
+  - name: player
+    uniqueID: 727525083
     locked: 0
   - name: bubble
     uniqueID: 2517300561
