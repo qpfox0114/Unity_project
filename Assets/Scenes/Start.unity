@@ -1198,8 +1198,8 @@ MonoBehaviour:
   bgm_volumeSlider: {fileID: 1933132459}
   bgm_audioSource: {fileID: 1221087850}
   bgm_MuteButton: {fileID: 711220014}
-  muteImage: {fileID: 21300000, guid: 0d010d7b2baa7b143af98352ea544be6, type: 3}
-  unmuteImage: {fileID: 21300000, guid: d1a28b2178b417844a2d3cd3a68265d9, type: 3}
+  muteImage: {fileID: 21300000, guid: d1a28b2178b417844a2d3cd3a68265d9, type: 3}
+  unmuteImage: {fileID: 21300000, guid: 0d010d7b2baa7b143af98352ea544be6, type: 3}
 --- !u!114 &1364018499
 MonoBehaviour:
   m_ObjectHideFlags: 0
