@@ -5542,6 +5542,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 467476879022900202, guid: 972816dfedc08ff42ae30ec6179ae0a4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 09ac08581cf25604fb88539b6d2c06a3, type: 3}
     - target: {fileID: 2046259185874399726, guid: 972816dfedc08ff42ae30ec6179ae0a4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -5673,6 +5677,22 @@ PrefabInstance:
     - target: {fileID: 4509858936832474630, guid: 972816dfedc08ff42ae30ec6179ae0a4, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538063813774283393, guid: 972816dfedc08ff42ae30ec6179ae0a4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.77191
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538063813774283393, guid: 972816dfedc08ff42ae30ec6179ae0a4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.84999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538063813774283393, guid: 972816dfedc08ff42ae30ec6179ae0a4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538063813774283393, guid: 972816dfedc08ff42ae30ec6179ae0a4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 99
       objectReference: {fileID: 0}
     - target: {fileID: 6279217444046846948, guid: 972816dfedc08ff42ae30ec6179ae0a4, type: 3}
       propertyPath: m_AnchorMax.y
