@@ -14,10 +14,14 @@ public class Timer : MonoBehaviour
     public TMP_Text m_timer;           //設定畫面倒數計時的文字
     public GameObject m_gameOver;  //設定 GAME OVER 物件
 
+    public int levelNumber;
+    public PlayerScore playerScore;
+
     void Start()
     {
         StartCoroutine(Countdown());   //呼叫倒數計時的協程
-        m_gameOver.SetActive(false); 
+        m_gameOver.SetActive(false);
+        playerScore = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScore>();
     }
 
     IEnumerator Countdown()
@@ -47,5 +51,6 @@ public class Timer : MonoBehaviour
         yield return new WaitForSeconds(1);   //時間結束時，顯示 00:00 停留一秒
         m_gameOver.SetActive(true);           //時間結束時，畫面出現 GAME COMPLETE
         Time.timeScale = 0;                   //時間結束時，控制遊戲暫停無法操作
+        ScoreManager.Instance.SetLevelScore(levelNumber, playerScore.score);
     }
 }
