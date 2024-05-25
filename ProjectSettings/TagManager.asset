@@ -3,20 +3,29 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - fan
+  - bigPlayer
+  - coffee
+  - Weapon
+  - Bubble
+  - Manipulatable
+  - Manipulatable1
+  - electricity
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Enemy
+  - Player
+  - Weapon
+  - BackGround
+  - spike
+  - triggerbox
   - 
   - 
   - 
@@ -40,4 +49,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: background
+    uniqueID: 4291681711
+    locked: 0
+  - name: Item
+    uniqueID: 1514296931
+    locked: 0
+  - name: bubble
+    uniqueID: 2517300561
     locked: 0

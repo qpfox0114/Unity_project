@@ -10,6 +10,7 @@ public class Arrow : MonoBehaviour
     public float force;
     void Start()
     {
+        arrow.SetActive(false);
         areaEffector = arrow.GetComponent<AreaEffector2D>();
     }
 
@@ -23,6 +24,7 @@ public class Arrow : MonoBehaviour
         // 檢查碰撞對象是否有 "Player" 標籤
         if (other.gameObject.CompareTag("Player"))
         {
+            arrow.SetActive(true);
             areaEffector.forceMagnitude = force;
         }
     }

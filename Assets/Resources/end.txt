@@ -1,0 +1,5 @@
+[image,night,night,0,0,0,spFadeIn_1000]
+[audio,bgm,Purple Cat - Breath taking  (madrugada ),true,0,audioTransit_1_1000]
+[show]
+[image,night,night,0,0,0,spFadeIn_1000]
+好欸~~~考完了~~~[lr]一切都結束了
