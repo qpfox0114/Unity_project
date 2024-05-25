@@ -48,7 +48,7 @@ public class Game_SettingsManager : MonoBehaviour
     {
         isMuted = !isMuted;
         AudioListener.volume = isMuted ? 0 : previousVolume;
-        muteButton.GetComponentInChildren<Text>().text = isMuted ? "取消靜音" : "靜音";
+        //muteButton.GetComponentInChildren<Text>().text = isMuted ? "取消靜音" : "靜音";
     }
 
     // 調整音量

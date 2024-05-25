@@ -9,13 +9,11 @@ public class doordet : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
     private CanvasGroup canvasGroup;
     private Vector3 initialPosition; // 記錄初始位置
     private int count; // 計數器
-    private door doorToNext;
-    private Animator doorAnimator;
+    private doorToNext doorToNext;
 
     private void Awake()
     {
-        doorAnimator = door.GetComponent<Animator>();
-        doorToNext = door.GetComponent<door>();
+        doorToNext = door.GetComponent<doorToNext>();
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         canvas = GetComponentInParent<Canvas>();
@@ -51,7 +49,6 @@ public class doordet : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
             {
                 Debug.Log("Manipulatable object detected: " + hitObject.name); // 確認物體具有正確的標籤
                 doorToNext.condition = true;
-                doorAnimator.SetTrigger("T");
                 count++;
             }
             else

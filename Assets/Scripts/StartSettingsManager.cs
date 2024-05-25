@@ -5,7 +5,7 @@ public class StartSettingsManager : MonoBehaviour
 {
     public GameObject settingsPanel; // 設定面板的遊戲物件
 
-    void Start()
+    public void Start()
     {
         // 在遊戲開始時將設定面板隱藏
         settingsPanel.SetActive(false);
