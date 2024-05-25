@@ -71,7 +71,6 @@ public class controler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
                     {
                         fanAnimator.SetTrigger("On");
                     }
-                    rectTransform.gameObject.SetActive(false); // 隐藏 UI 元素
                 }
                 else
                 {

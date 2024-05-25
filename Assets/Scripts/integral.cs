@@ -6,21 +6,21 @@ public class integral : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     private Canvas canvas;
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
-    private Vector3 initialPosition; // °O¿ýªì©l¦ì¸m
-    private int count; // ­p¼Æ¾¹
+    private Vector3 initialPosition; // ï¿½Oï¿½ï¿½ï¿½ï¿½lï¿½ï¿½m
+    private int count; // ï¿½pï¿½Æ¾ï¿½
 
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         canvas = GetComponentInParent<Canvas>();
-        initialPosition = rectTransform.anchoredPosition; // ¦b Awake ¤¤°O¿ýªì©l¦ì¸m
+        initialPosition = rectTransform.anchoredPosition; // ï¿½b Awake ï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½lï¿½ï¿½m
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        canvasGroup.alpha = 0.6f; // ©ì°Ê¹Lµ{¤¤¨Ï UI ¤¸¯À¥b³z©ú
-        canvasGroup.blocksRaycasts = false; // ¤¹³\®g½u¬ï³z³o­Ó UI ¤¸¯À
+        canvasGroup.alpha = 0.6f; // ï¿½ï¿½Ê¹Lï¿½{ï¿½ï¿½ï¿½ï¿½ UI ï¿½ï¿½ï¿½ï¿½ï¿½bï¿½zï¿½ï¿½
+        canvasGroup.blocksRaycasts = false; // ï¿½ï¿½ï¿½\ï¿½gï¿½uï¿½ï¿½zï¿½oï¿½ï¿½ UI ï¿½ï¿½ï¿½ï¿½
         Debug.Log("Begin Drag: " + gameObject.name);
     }
 
@@ -35,40 +35,40 @@ public class integral : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         canvasGroup.blocksRaycasts = true;
         Debug.Log("End Drag: " + gameObject.name);
 
-        // °õ¦æ 2D ®g½uÀË´ú¨ÓÀË´ú«D UI ª«Åé
+        // ï¿½ï¿½ï¿½ï¿½ 2D ï¿½gï¿½uï¿½Ë´ï¿½ï¿½ï¿½ï¿½Ë´ï¿½ï¿½D UI ï¿½ï¿½ï¿½ï¿½
         Vector2 raycastPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(raycastPosition, Vector2.zero);
         if (hit.collider != null)
         {
             GameObject hitObject = hit.collider.gameObject;
-            Debug.Log("Hit: " + hitObject.name); // ½T»{®g½uÀË´ú¨ìªºª«Åé
-            if (hitObject.CompareTag("Manipulatable"))
+            Debug.Log("Hit: " + hitObject.name); // ï¿½Tï¿½{ï¿½gï¿½uï¿½Ë´ï¿½ï¿½ìªºï¿½ï¿½ï¿½ï¿½
+            if (hitObject.CompareTag("fan") || hitObject.CompareTag("fan2") || hitObject.CompareTag("fan3")) // ï¿½pï¿½Gï¿½Sï¿½ï¿½ï¿½Ë´ï¿½ï¿½ï¿½Ø¼Ðªï¿½ï¿½ï¿½Aï¿½Tï¿½{ï¿½gï¿½uï¿½Ë´ï¿½ï¿½ìªºï¿½ï¿½ï¿½ï¿½
             {
-                Debug.Log("Manipulatable object detected: " + hitObject.name); // ½T»{ª«Åé¨ã¦³¥¿½Tªº¼ÐÅÒ
+                Debug.Log("Manipulatable object detected: " + hitObject.name); // ï¿½Tï¿½{ï¿½ï¿½ï¿½ï¿½ã¦³ï¿½ï¿½ï¿½Tï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 EnlargeObject(hitObject);
-                rectTransform.anchoredPosition = initialPosition; // ªð¦^ªì©l¦ì¸m
+                rectTransform.anchoredPosition = initialPosition; // ï¿½ï¿½^ï¿½ï¿½lï¿½ï¿½m
             }
             else
             {
                 Debug.Log("Hit object does not have the correct tag, returning to original position");
-                rectTransform.anchoredPosition = initialPosition; // ªð¦^ªì©l¦ì¸m
+                rectTransform.anchoredPosition = initialPosition; // ï¿½ï¿½^ï¿½ï¿½lï¿½ï¿½m
             }
         }
         else
         {
             Debug.Log("No object hit by Raycast, returning to original position");
-            rectTransform.anchoredPosition = initialPosition; // ¦pªG¨S¦³ÀË´ú¨ì¥Ø¼Ðª«Åé¡Aªð¦^ªì©l¦ì¸m
+            rectTransform.anchoredPosition = initialPosition; // ï¿½pï¿½Gï¿½Sï¿½ï¿½ï¿½Ë´ï¿½ï¿½ï¿½Ø¼Ðªï¿½ï¿½ï¿½Aï¿½ï¿½^ï¿½ï¿½lï¿½ï¿½m
         }
-        if (count == 5)
-        {
-            rectTransform.gameObject.SetActive(false); // ÁôÂÃ UI ¤¸¯À
-        }
+        // if (count == 5)
+        // {
+        //     rectTransform.gameObject.SetActive(false); // ï¿½ï¿½ï¿½ï¿½ UI ï¿½ï¿½ï¿½ï¿½
+        // }
     }
 
     private void EnlargeObject(GameObject obj)
     {
-        count++;
-        obj.transform.localScale += new Vector3(0.5f, 0.5f, 0.5f); // ÅãµÛ¼W¥[ÁY©ñ
+        // count++;
+        obj.transform.localScale += new Vector3(0.1f, 0.1f, 0.1f); // ï¿½ï¿½Û¼Wï¿½[ï¿½Yï¿½ï¿½
         Debug.Log("Enlarged " + obj.name + " to " + obj.transform.localScale);
     }
 }

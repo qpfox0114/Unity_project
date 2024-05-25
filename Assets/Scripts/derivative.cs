@@ -46,10 +46,16 @@ public class derivative : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         {
             GameObject hitObject = hit.collider.gameObject;
             Debug.Log("Hit: " + hitObject.name); // 確認射線檢測到的物體
-            if (hitObject.CompareTag("Manipulatable"))
+            if (hitObject.CompareTag("Manipulatable")) // 檢查檢測到的物體是否具有正確的標籤
             {
                 Debug.Log("Manipulatable object detected: " + hitObject.name); // 確認物體具有正確的標籤
                 ShrinkObject(hitObject);
+            }
+            else if (hitObject.CompareTag("fan") || hitObject.CompareTag("fan2") || hitObject.CompareTag("fan3")) // 檢查檢測到的物體是否具有正確的標籤
+            {
+                Debug.Log("Manipulatable object detected: " + hitObject.name); // 確認物體具有正確的標籤
+                ShrinkObject1(hitObject);
+                rectTransform.anchoredPosition = initialPosition; // 返回初始位置
             }
             else
             {
@@ -62,17 +68,28 @@ public class derivative : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
             Debug.Log("No object hit by Raycast, returning to original position");
             rectTransform.anchoredPosition = initialPosition; // 如果沒有檢測到目標物體，返回初始位置
         }
-        if(count == 5){
-            rectTransform.gameObject.SetActive(false); // 隱藏 UI 元素
-        }
+        // if(count == 5){
+        //     rectTransform.gameObject.SetActive(false); // 隱藏 UI 元素
+        // }
     }
 
     public void ShrinkObject(GameObject obj)
     {
-        count++;
+        // count++;
         obj.transform.localScale -= new Vector3(0.5f, 0.5f, 0.5f); // 顯著減少縮放
-        if (obj.transform.localScale.x < 0.1f) {
-            obj.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f); // 防止縮放為負或零
+        if (obj.transform.localScale.x < 0.001f) {
+            obj.transform.localScale = new Vector3(0.001f, 0.001f, 0.001f); // 防止縮放為負或零
+            count--;
+            Sleep.ShowObject();
+        }
+        Debug.Log("Shrunk " + obj.name + " to " + obj.transform.localScale);
+    }
+    public void ShrinkObject1(GameObject obj)
+    {
+        // count++;
+        obj.transform.localScale -= new Vector3(0.1f, 0.1f, 0.1f); // 顯著減少縮放
+        if (obj.transform.localScale.x < 0.001f) {
+            obj.transform.localScale = new Vector3(0.001f, 0.001f, 0.001f); // 防止縮放為負或零
             count--;
             Sleep.ShowObject();
         }
