@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class AudioManager : MonoBehaviour{
+public class AudioManager : MonoBehaviour
+{
     public AudioClip bgm; // 背景音樂
     // 看那些功能需要音效可以再加
     public AudioClip seBubble; // 得到泡泡
@@ -40,7 +40,7 @@ public class AudioManager : MonoBehaviour{
     }
 
     // 使用的時候 GameManager.instance.audioManager.Play(index, name, true/false);
-    void Play(int index, string name, bool isloop) {
+    public void Play(int index, string name, bool isloop) {
         var clip = GetAudioClip(name);
         if(clip != null){
             var audio = audios[index];
@@ -49,5 +49,4 @@ public class AudioManager : MonoBehaviour{
             audio.Play();
         }
     }
-
 }

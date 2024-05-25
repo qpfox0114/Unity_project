@@ -5,11 +5,12 @@ public class BGM_VolumeController : MonoBehaviour
 {
     public Slider bgm_volumeSlider;  // 音量滑塊
     public AudioSource bgm_audioSource;  // 音樂音源
-    public Button bgm_MuteButton;  // 音樂音源
-    private float previousVolume = 1f;  // 記錄之前的音量
-    private bool isMuted = false; // 記錄是否靜音
+    public Button bgm_MuteButton;  // 靜音按鈕
     public Sprite muteImage; // 靜音圖案
     public Sprite unmuteImage; // 取消靜音圖案
+
+    private float previousVolume = 1f;  // 記錄之前的音量
+    private bool isMuted = false; // 記錄是否靜音
 
     void Start()
     {
@@ -17,9 +18,10 @@ public class BGM_VolumeController : MonoBehaviour
         bgm_volumeSlider.value = bgm_audioSource.volume;
         // 監聽滑塊值變化
         bgm_volumeSlider.onValueChanged.AddListener(ChangeVolume);
-        bgm_MuteButton.onClick.AddListener(Mute);
+        // 監聽靜音按鈕點擊事件
+        bgm_MuteButton.onClick.AddListener(ToggleMute);
         // 設置靜音按鈕初始圖案
-        Updatebgm_MuteButtonImage();
+        UpdateMuteButtonImage();
     }
 
     // 改變音量
@@ -36,32 +38,29 @@ public class BGM_VolumeController : MonoBehaviour
         {
             isMuted = true;
         }
-        Updatebgm_MuteButtonImage();
+        UpdateMuteButtonImage();
     }
 
-    // 靜音功能
-    public void Mute()
+    // 切換靜音狀態
+    public void ToggleMute()
     {
-        // 如果當前音量不為零，將音量設置為零，並記錄之前的音量
-        if (bgm_audioSource.volume > 0)
+        isMuted = !isMuted;
+        if (isMuted)
         {
             previousVolume = bgm_audioSource.volume;
             bgm_audioSource.volume = 0;
             bgm_volumeSlider.value = 0;
-            isMuted = true;
         }
-        // 如果當前音量為零，將音量恢復到之前的值
         else
         {
             bgm_audioSource.volume = previousVolume;
             bgm_volumeSlider.value = previousVolume;
-            isMuted = false;
         }
-        Updatebgm_MuteButtonImage();
+        UpdateMuteButtonImage();
     }
 
     // 更新靜音按鈕圖案
-    private void Updatebgm_MuteButtonImage()
+    private void UpdateMuteButtonImage()
     {
         if (isMuted)
         {
@@ -72,5 +71,4 @@ public class BGM_VolumeController : MonoBehaviour
             bgm_MuteButton.image.sprite = unmuteImage;
         }
     }
-
 }
