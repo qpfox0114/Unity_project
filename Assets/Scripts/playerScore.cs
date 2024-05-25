@@ -16,7 +16,7 @@ public class PlayerScore : MonoBehaviour
 
     void Start()
     {
-        score = 100; // 初始化分數
+        score = 0; // 初始化分數
         myRender = GetComponent<Renderer>(); // 獲取渲染器
         sf = GetComponent<screenflash>(); // 獲取屏幕閃爍效果
         cc2d = GetComponent<CapsuleCollider2D>(); // 獲取 2D 膠囊碰撞器

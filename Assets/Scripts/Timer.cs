@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
@@ -15,10 +16,12 @@ public class Timer : MonoBehaviour
     public GameObject m_gameOver;  //設定 GAME OVER 物件
 
     public int levelNumber;
-    public PlayerScore playerScore;
+    private PlayerScore playerScore;
+    public string SceneName;
 
     void Start()
     {
+        this.transform.tag = "";
         StartCoroutine(Countdown());   //呼叫倒數計時的協程
         m_gameOver.SetActive(false);
         playerScore = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScore>();
@@ -51,6 +54,7 @@ public class Timer : MonoBehaviour
         yield return new WaitForSeconds(1);   //時間結束時，顯示 00:00 停留一秒
         m_gameOver.SetActive(true);           //時間結束時，畫面出現 GAME COMPLETE
         Time.timeScale = 0;                   //時間結束時，控制遊戲暫停無法操作
-        ScoreManager.Instance.SetLevelScore(levelNumber, playerScore.score);
+        //ScoreManager.Instance.SetLevelScore(levelNumber, playerScore.score);
+        SceneManager.LoadScene(SceneName);
     }
 }

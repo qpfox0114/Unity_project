@@ -1,18 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 
-public class sceneVideo : MonoBehaviour
+public class SceneVideoManager : MonoBehaviour
 {
-    public string SceneName;
+    public string sceneName;
+    public float playDuration = 3.0f;
 
     private VideoPlayer videoPlayer;
+    private float timer;
 
     void Start()
     {
-        this.transform.tag = "";
         videoPlayer = GetComponent<VideoPlayer>();
 
         if (videoPlayer == null)
@@ -21,12 +20,23 @@ public class sceneVideo : MonoBehaviour
             return;
         }
 
-        videoPlayer.loopPointReached += OnVideoEnd;
+        videoPlayer.isLooping = true;
         videoPlayer.Play();
     }
 
-    void OnVideoEnd(VideoPlayer vp)
+    void Update()
     {
-        SceneManager.LoadScene(SceneName);
+        timer += Time.deltaTime;
+
+        if (timer >= playDuration)
+        {
+            videoPlayer.Stop(); 
+            LoadNextScene(); 
+        }
+    }
+
+    void LoadNextScene()
+    {
+        SceneManager.LoadScene(sceneName);
     }
 }
