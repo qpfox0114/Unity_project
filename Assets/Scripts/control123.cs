@@ -1,9 +1,9 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class controler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class control123 : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     private Canvas canvas;
     private RectTransform rectTransform;
@@ -60,7 +60,7 @@ public class controler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         {
             GameObject hitObject = hit.collider.gameObject;
             Debug.Log("Hit: " + hitObject.name);
-            if (hitObject.CompareTag("fan"))
+            if (hitObject.CompareTag("fan3"))
             {
                 Debug.Log("Manipulatable object detected: " + hitObject.name);
 

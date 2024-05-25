@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerScore : MonoBehaviour
 {
-    public static int score; // 記錄分數
+    public int score; // 記錄分數
     public int blinks; // 閃爍次數
     public float time; // 每次閃爍的時間
     public float cd; // 無敵狀態持續時間
@@ -25,7 +25,7 @@ public class PlayerScore : MonoBehaviour
 
     void Update()
     {
-        // 更新邏輯（如果有的話）
+
     }
 
     public void DamegePlayer(int damage)

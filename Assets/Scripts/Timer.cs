@@ -18,6 +18,9 @@ public class Timer : MonoBehaviour
 
     private bool isPaused;         // 計時是否暫停
 
+    public int levelNumber;
+    public PlayerScore playerScore;
+
     void Start()
     {
         StartCoroutine(Countdown());   // 呼叫倒數計時的協程
@@ -26,6 +29,9 @@ public class Timer : MonoBehaviour
 
         pauseButton.onClick.AddListener(PauseTimer);
         resumeButton.onClick.AddListener(ResumeTimer);
+        StartCoroutine(Countdown());   //呼叫倒數計時的協程
+        m_gameOver.SetActive(false);
+        playerScore = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScore>();
     }
 
     IEnumerator Countdown()
@@ -71,5 +77,9 @@ public class Timer : MonoBehaviour
     public void ResumeTimer()
     {
         isPaused = false;
+        yield return new WaitForSeconds(1);   //時間結束時，顯示 00:00 停留一秒
+        m_gameOver.SetActive(true);           //時間結束時，畫面出現 GAME COMPLETE
+        Time.timeScale = 0;                   //時間結束時，控制遊戲暫停無法操作
+        ScoreManager.Instance.SetLevelScore(levelNumber, playerScore.score);
     }
 }
