@@ -10,7 +10,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip seBlock; // 放置區塊
     public AudioClip seClick; // 點選功能
     public AudioClip seJump; // 向上跳
-    public AudioClip seSuccess; // 成功抵達終點
+    public AudioClip seSuccess; // 成功吃完所有泡泡
 
     List<AudioSource> audios = new List<AudioSource>();  // 聲音播放器的清單
     private void Awake() {
@@ -39,7 +39,7 @@ public class AudioManager : MonoBehaviour
         return null;
     }
 
-    // 使用的時候 GameManager.instance.audioManager.Play(index, name, true/false);
+
     public void Play(int index, string name, bool isloop) {
         var clip = GetAudioClip(name);
         if(clip != null){

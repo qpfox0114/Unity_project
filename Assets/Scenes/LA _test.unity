@@ -2498,8 +2498,8 @@ MonoBehaviour:
   muteImage: {fileID: 21300000, guid: d1a28b2178b417844a2d3cd3a68265d9, type: 3}
   unmuteImage: {fileID: 21300000, guid: 0d010d7b2baa7b143af98352ea544be6, type: 3}
   audioSources:
-  - {fileID: 346902095}
   - {fileID: 1893883001}
+  - {fileID: 346902095}
   - {fileID: 2077032679}
   - {fileID: 523028787}
   - {fileID: 1925800831}
@@ -5549,6 +5549,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8798895965279465072, guid: b7bd2b8738e502b40b470b04d2abe4d2, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1358065185}
     - target: {fileID: 8980754009621070515, guid: b7bd2b8738e502b40b470b04d2abe4d2, type: 3}
       propertyPath: maxX
       value: 20

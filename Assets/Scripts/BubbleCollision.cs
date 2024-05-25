@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class BubbleCollision : MonoBehaviour
 {
-    public AudioManager audioManager; // 音效管理器
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player")) // 檢查碰撞的對象是否為 Player
@@ -11,11 +10,6 @@ public class BubbleCollision : MonoBehaviour
             if (playerScore != null)
             {
                 playerScore.IncreaseScore(10); // 增加分數
-            }
-            if (audioManager != null)
-            {
-                //audioManager.Play(1, "seBubble", false); // 播放泡泡音效
-                //audioManager.PlaySE(1, "seBubble");
             }
             Destroy(gameObject); // 銷毀泡泡對象
         }

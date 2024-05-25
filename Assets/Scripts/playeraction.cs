@@ -22,9 +22,6 @@ public class playeraction : MonoBehaviour
     public Collider2D playerColl; // 玩家的碰撞體
     public Animator playerAnim; // 玩家的動畫控制器
 
-    [Header("音效管理")]
-    public AudioManager audioManager; // 音效管理器
-
     void Start()
     {
         // 獲取玩家的碰撞體
