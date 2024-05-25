@@ -10,7 +10,7 @@ public class BubbleCollision : MonoBehaviour
             PlayerScore playerScore = other.GetComponent<PlayerScore>(); // 獲取 PlayerScore 組件
             if (playerScore != null)
             {
-                playerScore.IncreaseScore(5); // 增加分數
+                playerScore.IncreaseScore(10); // 增加分數
             }
             if (audioManager != null)
             {
